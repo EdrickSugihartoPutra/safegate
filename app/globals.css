@@ -16,7 +16,14 @@
   }
 }
 
+html {
+  overflow-x: hidden;
+}
 body {
+  @apply bg-[#25344f];
+}
+
+/* body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -24,4 +31,31 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+} */
+
+.navbar-fixed {
+  @apply fixed z-[9999] bg-white bg-opacity-80 backdrop-blur-[5px] text-primary;
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.4);
+}
+
+.hamburger-line {
+  @apply w-[30px] h-[2px] my-2 block bg-dark;
+}
+
+.hamburger-active span:nth-child(1) {
+  @apply rotate-45;
+}
+.hamburger-active span:nth-child(2) {
+  @apply scale-0;
+}
+.hamburger-active span:nth-child(3) {
+  @apply -rotate-45;
+}
+
+/* allLesson START*/
+
+/* allLesson END */
+
+.answer-selected {
+  @apply bg-darker text-light;
 }
