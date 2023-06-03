@@ -4,9 +4,13 @@ import Link from "next/link";
 import { useState } from "react";
 import { FiInfo } from "react-icons/fi";
 import { BsFillShieldFill } from "react-icons/bs";
+import { signOut } from "firebase/auth";
+import { auth } from "../firebaseConfig";
+import { useRouter } from "next/navigation";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
 
   const hamburgerToggle = () => {
     setIsOpen(!isOpen);
@@ -26,6 +30,11 @@ export default function Navbar() {
       }
     };
   }
+  const logout = async () => {
+    await signOut(auth);
+    // Sign-out successful.
+    return router.push("/");
+  };
   return (
     <header className="bg-white bg-opacity-80 absolute top-0 left-0 w-full items-center z-10 transition duration-75">
       <div className="container">
@@ -90,11 +99,19 @@ export default function Navbar() {
                     <FiInfo />
                   </Link>
                 </li>
+                <li className="group lg:hidden">
+                  <span className="text-base text-dark py-2 mx-8 flex group-hover:text-gold group-hover:font-semibold items-center gap-1">
+                    LogOut
+                  </span>
+                </li>
               </ul>
             </nav>
           </div>
           <div className="hidden ml-auto lg:flex">
-            <div className="flex w-full gap-2 rounded bg-secondary py-2 px-4 items-center">
+            <div
+              onClick={logout}
+              className="flex w-full gap-2 rounded bg-salmon py-2 px-4 items-center shadow-lg shado-dark hover:bg-[#FE532D] hover:cursor-pointer"
+            >
               <Image
                 src="/placeholder.jpg"
                 alt=""
@@ -102,7 +119,7 @@ export default function Navbar() {
                 width={30}
                 className="rounded-full"
               />
-              <h2 className="text-light">Username</h2>
+              <h2 className="text-light">Logout</h2>
             </div>
           </div>
         </div>
