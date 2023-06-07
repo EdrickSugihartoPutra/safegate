@@ -1,9 +1,20 @@
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import { BsJournalBookmark } from "react-icons/bs";
 import { HiOutlineBadgeCheck } from "react-icons/hi";
 import placeHolder from "../../public/placeholder.jpg";
+import { getUserInfo } from "../firebaseConfig";
 
 export default function ProfileCard() {
+  const [userName, setuserName] = useState({
+    username:"NULL",
+    level:0,
+  });
+  useEffect(()=>{
+    getUserInfo().then((e)=>{
+      setuserName(e)
+    })
+  },[])
   return (
     <section className="relative mt-4" id="profileCard">
       <div className="container">
@@ -18,8 +29,8 @@ export default function ProfileCard() {
               />
             </div>
             <div className="flex flex-col justify-center ml-4">
-              <h3 className="font-medium text-lg text-light">Username</h3>
-              <h3 className="font-medium text-lg text-light">{"(Lvl. XX)"}</h3>
+              <h3 className="font-medium text-lg text-light">{userName.username}</h3>
+              <h3 className="font-medium text-lg text-light">(Lvl.{userName.level})</h3>
             </div>
           </div>
           {/* separator */}
