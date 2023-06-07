@@ -43,8 +43,8 @@ export default function SpoofLesson() {
             <div className="">
               <p className="text-sm md:text-md lg:text-lg">{lesson.materi}</p>
               <ul className="list-disc mx-4 text-sm md:text-md lg:text-lg my-4">
-                {lesson.avoidance?.map((item) => (
-                  <li>{item}</li>
+                {lesson.avoidance?.map((item, idx) => (
+                  <li key={idx}>{item}</li>
                 ))}
               </ul>
               <p className="text-sm md:text-md lg:text-lg">

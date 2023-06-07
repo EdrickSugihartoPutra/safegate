@@ -91,8 +91,10 @@ export default function SpoofLesson() {
                 Dampak
               </h4>
               <ul className="list-disc mx-4 text-sm md:text-md lg:text-lg my-4">
-                {lesson.dampak?.map((item) => (
-                  <li className="my-2">{item}</li>
+                {lesson.dampak?.map((item, idx) => (
+                  <li className="my-2" key={idx}>
+                    {item}
+                  </li>
                 ))}
               </ul>
               {/* Label */}
@@ -100,8 +102,10 @@ export default function SpoofLesson() {
                 Motif
               </h4>
               <ul className="list-disc mx-4 text-sm md:text-md lg:text-lg my-4">
-                {lesson.motif?.map((item) => (
-                  <li className="my-2">{item}</li>
+                {lesson.motif?.map((item, idx) => (
+                  <li className="my-2" key={idx}>
+                    {item}
+                  </li>
                 ))}
               </ul>
               {/* Label */}
@@ -109,8 +113,10 @@ export default function SpoofLesson() {
                 Pencegahan
               </h4>
               <ul className="list-disc mx-4 text-sm md:text-md lg:text-lg my-4">
-                {lesson.prevensi?.map((item) => (
-                  <li className="my-2">{item}</li>
+                {lesson.prevensi?.map((item, idx) => (
+                  <li className="my-2" key={idx}>
+                    {item}
+                  </li>
                 ))}
               </ul>
               {/* Label */}
