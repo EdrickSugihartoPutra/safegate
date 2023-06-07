@@ -7,6 +7,7 @@ import { BsFillShieldFill } from "react-icons/bs";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebaseConfig";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,27 +17,65 @@ export default function Navbar() {
     setIsOpen(!isOpen);
   };
 
-  if (typeof window !== undefined || typeof document !== undefined) {
-    // @ts-ignore (not recommended)
+  // if (typeof window !== undefined || typeof document !== undefined) {
+  //   window.onscroll = function () {
+  //     const header = document.querySelector("header");
+  //     const fixedNav = header?.offsetTop;
+
+  //     if (window.scrollY > fixedNav) {
+  //       header?.classList.add("navbar-fixed");
+  //     } else {
+  //       header?.classList.remove("navbar-fixed");
+  //     }
+  //   };
+  // }
+
+  // test
+  useEffect(() => {
+    // Navbar Fixed
     window.onscroll = function () {
       const header = document.querySelector("header");
-      //   @ts-ignore (not recommended)
       const fixedNav = header.offsetTop;
+      const toTop = document.querySelector("#totop");
 
-      if (window.scrollY > fixedNav) {
-        header?.classList.add("navbar-fixed");
+      if (window.pageYOffset > fixedNav) {
+        header.classList.add("navbar-fixed");
+        toTop.classList.remove("hidden");
       } else {
-        header?.classList.remove("navbar-fixed");
+        header.classList.remove("navbar-fixed");
+        toTop.classList.add("hidden");
       }
     };
-  }
+
+    // Hamburger Script
+    const hamburger = document.querySelector("#hamburger");
+    const navMenu = document.querySelector("#nav-menu");
+    const welcome = document.querySelector("#herowelcome");
+    hamburger.addEventListener("click", function () {
+      hamburger.classList.toggle("hamburgeractive");
+      navMenu.classList.toggle("hidden");
+      welcome.classList.toggle("z-10");
+    });
+
+    // Outside Click to close navbar Hamburger
+    window.addEventListener("click", function (e) {
+      if (e.target != hamburger && e.target != navMenu) {
+        hamburger.classList.remove("hamburgeractive");
+        navMenu.classList.add("hidden");
+        welcome.classList.add("z-10");
+      }
+    });
+  });
+
+  // end test
+
   const logout = async () => {
     await signOut(auth);
     // Sign-out successful.
     return router.push("/");
   };
   return (
-    <header className="fixed-top bg-white bg-opacity-80 absolute top-0 left-0 w-full items-center z-10 transition duration-75">
+    <header className="bg-white bg-opacity-80 absolute top-0 left-0 w-full items-center z-10 transition duration-75">
       <div className="fixed-top container">
         <div className="fixed-top elative flex items-center ">
           <div className="fixed-top flex bg-secondary items-center gap-1 px-6 py-4 sm:my-2 rounded scale-75 sm:scale-100">
