@@ -64,11 +64,6 @@ export async function signIn(email: string, password: string) {
     error = e;
   }
 
-  const querySnapshot = await getDoc(doc(db, "users", auth.currentUser!.uid));
-  // if(querySnapshot.exists()){ //test username access
-  //   alert(querySnapshot.data().username);
-  // }
-
   return { result, error };
 }
 
@@ -82,23 +77,45 @@ export async function getLeaderboard() {
         name: res.username,
         score: res.score ? res.score : 0,
         pic: placeHolder,
-        level:Math.floor(res.score ? res.score : 0 /100),
+        level:Math.floor((res.score ? res.score : 0 )/100),
       }
     )
   })
-  console.log(listuser);
-  // if(querySnapshot.exists()){
-  //   const queryResults = querySnapshot.data()
-  //   console.log(queryResults)
-  //   listuser = queryResults? queryResults.map((e:DocumentData)=>{
-  //     return{
-  //       name: e.username,
-  //       score: e.score,
-  //       pic: placeHolder,
-  //     }
-      
-  //   }) : [];
-  // }
 
   return listuser;
+}
+
+export async function getUserInfo() {
+  try {
+    const querySnapshot = await getDoc(doc(db, "users", auth.currentUser!.uid));
+    if(querySnapshot.exists()){
+      return {
+        username:querySnapshot.data().username,
+        level:Math.floor((querySnapshot.data().score?querySnapshot.data().score:0 )/100)
+      }
+    }
+  } catch (e) {
+  }
+  return {
+    username:"NULL",
+    level:0,
+  };
+}
+
+export async function increasequizasdas(score:number) {
+  if(score >= 150){
+    try {
+      const querySnapshot = await getDoc(doc(db, "users", auth.currentUser!.uid));
+      if(querySnapshot.exists()){
+        const adsfdghjk = querySnapshot.data().score ? querySnapshot.data().score : 0
+        await updateDoc(doc(db, "users", auth.currentUser!.uid),{
+          score: adsfdghjk + score
+        }); 
+      }
+    } catch (e) {
+    }
+    alert('yay dapet coin!')
+    return
+  }
+  alert('kamu blm beruntung. coba lagi ya!')
 }

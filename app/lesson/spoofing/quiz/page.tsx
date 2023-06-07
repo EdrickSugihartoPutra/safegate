@@ -1,5 +1,7 @@
 "use client";
+import { increasequizasdas } from "@/app/firebaseConfig";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { quiz } from "./quizdata";
 
@@ -17,7 +19,18 @@ export default function Quiz() {
 
   const { questions } = quiz;
   const { question, answers, correctAnswer } = questions[activeQuestion];
-
+  const router = useRouter();
+  const getCaculation = ()=>{
+    console.log({
+      score:result.correctAnswers * 50,
+      winres:result.correctAnswers*50 >= 150 ? "win":'lose',
+      quizdone:"yes",
+    })
+    increasequizasdas(result.correctAnswers * 50).then(()=>{
+      router.push('/lesson');
+    })
+    
+  }
   //   Select and check answer
   const onAnswerSelected = (answer: any, idx: any) => {
     setChecked(true);
@@ -122,8 +135,9 @@ export default function Quiz() {
                   </span>{" "}
                   pertanyaan
                 </p>
-                <button className="font-semibold px-4 py-2 mt-4 bg-dark shadow shadow-dark rounded-md hover:bg-darker transition">
-                  <Link href="/lesson">Selesai</Link>
+                <button onClick={getCaculation} className="font-semibold px-4 py-2 mt-4 bg-dark shadow shadow-dark rounded-md hover:bg-darker transition">
+                  {/* <Link href="/lesson">Selesai</Link> */}
+                  <span>Selesai</span>
                 </button>
               </div>
             </div>
