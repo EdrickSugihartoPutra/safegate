@@ -20,8 +20,9 @@ export default function AllLesson() {
         <div className="relative max-w-full container flex bg-transparent px-0 ">
           <div className="container flex w-full px-0 gap-4 overflow-x-auto pb-4">
             {/* map subjects */}
-            {lessonsIdx.map((subject) => (
+            {lessonsIdx.map((subject, idx) => (
               <div
+                key={idx}
                 className={`flex shrink-0 w-[220px] h-[300px] items-center justify-center bg-primary rounded-lg shadow-lg shadow-dark`}
               >
                 <div className="flex flex-col gap-6 items-center ">

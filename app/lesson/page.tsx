@@ -6,8 +6,11 @@ import Link from "next/link";
 export default function Lesson() {
   return (
     <>
-      {lessonsIdx.map((subject) => (
-        <div className="container bg-transparent shadow-lg px-2 shadow-dark rounded-lg">
+      {lessonsIdx.map((subject, idx) => (
+        <div
+          key={idx}
+          className="container bg-transparent shadow-lg px-2 shadow-dark rounded-lg"
+        >
           <div className="flex flex-col mt-4 sm:flex-row">
             <div className="flex bg-primary w-full justify-center items-center rounded-tl-lg rounded-tr-lg sm:w-1/3 sm:py-4 sm:rounded-tr-none sm:rounded-bl-lg">
               <div className="flex flex-col items-center justify-center h-full scale-75 sm:scale-100">
