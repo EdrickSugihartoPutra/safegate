@@ -17,38 +17,44 @@ export default function Navbar() {
     setIsOpen(!isOpen);
   };
 
-  // if (typeof window !== undefined || typeof document !== undefined) {
-  //   window.onscroll = function () {
-  //     const header = document.querySelector("header");
-  //     const fixedNav = header?.offsetTop;
-
-  //     if (window.scrollY > fixedNav) {
-  //       header?.classList.add("navbar-fixed");
-  //     } else {
-  //       header?.classList.remove("navbar-fixed");
-  //     }
-  //   };
-  // }
+  useEffect(() => {
+    if (typeof window !== undefined || typeof document !== undefined) {
+      window.onscroll = function () {
+        const header = document.querySelector("header");
+        const fixedNav = header?.offsetTop;
+        // @ts-ignore
+        if (window.scrollY > fixedNav) {
+          header?.classList.add("navbar-fixed");
+        } else {
+          header?.classList.remove("navbar-fixed");
+        }
+      };
+    }
+  });
 
   // test
-  useEffect(() => {
-    // Navbar Fixed
-    window.onscroll = function () {
-      const header = document.querySelector("header");
-      const fixedNav = header?.offsetTop;
-      const toTop = document.querySelector("#totop");
-      // @ts-ignore
-      if (window.pageYOffset > fixedNav) {
-        header?.classList.add("navbar-fixed");
-        toTop?.classList.remove("hidden");
-      } else {
-        // @ts-ignore
-        header.classList.remove("navbar-fixed");
-        // @ts-ignore
-        toTop.classList.add("hidden");
-      }
-    };
-  });
+  // useEffect(() => {
+  //   // Navbar Fixed
+  //   if (typeof window !== undefined || typeof document !== undefined) {
+  //     window.onscroll = function () {
+  //       const header = document.querySelector("header");
+  //       const fixedNav = header?.offsetTop;
+  //       const toTop = document.querySelector("#totop");
+  //       // @ts-ignore
+  //       if (window.pageYOffset > fixedNav) {
+  //         // @ts-ignore
+  //         header?.classList.add("navbar-fixed");
+  //         // @ts-ignore
+  //         toTop?.classList.remove("navbar-fixed");
+  //       } else {
+  //         // @ts-ignore
+  //         header.classList.remove("navbar-fixed");
+  //         // @ts-ignore
+  //         toTop.classList.add("navbar-fixed");
+  //       }
+  //     };
+  //   }
+  // });
 
   // end test
 

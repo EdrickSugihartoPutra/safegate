@@ -24,7 +24,7 @@ export default function Dashboard() {
           <RightContent />
         </div>
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }

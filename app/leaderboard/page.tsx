@@ -6,6 +6,7 @@ import { users } from "./dummy";
 
 import { BiTrophy } from "react-icons/bi";
 import Profile from "./profile";
+import Footer from "../components/footer";
 
 export default function Leaderboard() {
   const clickHandler = (e: any) => {
@@ -56,6 +57,7 @@ export default function Leaderboard() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

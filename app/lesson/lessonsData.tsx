@@ -1,9 +1,7 @@
 import phishing from "../../public/icons/phising.png";
 import hacking from "../../public/icons/hacker.png";
-import ransom from "../../public/icons/ransomware.png";
 import cyberCrime from "../../public/icons/cybercrime.png";
 import spoofing from "../../public/icons/spoofing.png";
-import DDos from "../../public/icons/ddos.png";
 import carding from "../../public/icons/carding.png";
 
 export const lessonsIdx = [
