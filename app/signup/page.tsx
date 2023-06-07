@@ -7,13 +7,14 @@ import { useState } from "react";
 export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [username, setusername] = useState("");
   const [errorDetails, seterrorDetails] = useState("");
   const router = useRouter();
 
   const handleForm = async (event: any) => {
     event.preventDefault();
 
-    const { result, error } = await signUp(email, password);
+    const { result, error } = await signUp(email, password,username);
 
     if (error) {
       // seterrorDetails(error);
@@ -50,6 +51,7 @@ export default function SignUp() {
               name="username"
               autoComplete="off"
               className="text-dark px-1 rounded"
+              onChange={(e) => setusername(e.target.value)}
             />
             <label htmlFor="email">Email:</label>
             <input
@@ -57,13 +59,14 @@ export default function SignUp() {
               onChange={(e) => setEmail(e.target.value)}
               id="email"
               name="email"
-              autoComplete="off"
+              autoComplete="email"
               className="text-dark px-1 rounded"
             />
             <label htmlFor="password">Password:</label>
             <input
               type="password"
               onChange={(e) => setPassword(e.target.value)}
+              autoComplete="password"
               id="password"
               name="password"
               className="text-dark px-1 rounded"
