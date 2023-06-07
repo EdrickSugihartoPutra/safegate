@@ -127,7 +127,7 @@ export default function Navbar() {
                     <FiInfo />
                   </Link>
                 </li>
-                <li className="group lg:hidden">
+                <li className="group lg:hidden" onClick={logout}>
                   <span className="text-base text-dark py-2 mx-8 flex group-hover:text-gold group-hover:font-semibold items-center gap-1">
                     LogOut
                   </span>

@@ -5,6 +5,7 @@ import RightContent from "./rightContent";
 import ProfileCard from "./profileCard";
 import AllLesson from "./allLesson";
 import Footer from "../components/footer";
+import Store from "./store";
 
 export default function Dashboard() {
   return (
@@ -21,7 +22,8 @@ export default function Dashboard() {
         <div className="hidden bg-rounded bg-slate-300 w-[2px] mt-4 md:block"></div>
         {/* Right Side */}
         <div className="hidden container w-1/4 md:block">
-          <RightContent />
+          {/* <RightContent /> */}
+          <Store />
         </div>
       </div>
       <Footer />
