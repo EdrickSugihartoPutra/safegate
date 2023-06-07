@@ -42,6 +42,7 @@ export default function Home() {
                 onChange={(e) => setEmail(e.target.value)}
                 id="email"
                 name="email"
+                autoComplete="email"
                 className="text-dark px-1 rounded"
               />
               <label htmlFor="password">Password:</label>
@@ -51,6 +52,7 @@ export default function Home() {
                 id="password"
                 name="password"
                 className="text-dark px-1 rounded"
+                autoComplete="password"
               />
               <div className="flex flex-col justify-evenly items-center mt-8">
                 <button
