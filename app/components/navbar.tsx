@@ -32,32 +32,6 @@ export default function Navbar() {
     }
   });
 
-  // test
-  // useEffect(() => {
-  //   // Navbar Fixed
-  //   if (typeof window !== undefined || typeof document !== undefined) {
-  //     window.onscroll = function () {
-  //       const header = document.querySelector("header");
-  //       const fixedNav = header?.offsetTop;
-  //       const toTop = document.querySelector("#totop");
-  //       // @ts-ignore
-  //       if (window.pageYOffset > fixedNav) {
-  //         // @ts-ignore
-  //         header?.classList.add("navbar-fixed");
-  //         // @ts-ignore
-  //         toTop?.classList.remove("navbar-fixed");
-  //       } else {
-  //         // @ts-ignore
-  //         header.classList.remove("navbar-fixed");
-  //         // @ts-ignore
-  //         toTop.classList.add("navbar-fixed");
-  //       }
-  //     };
-  //   }
-  // });
-
-  // end test
-
   const logout = async () => {
     await signOut(auth);
     // Sign-out successful.

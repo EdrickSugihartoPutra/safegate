@@ -11,17 +11,17 @@ import { getLeaderboard } from "../firebaseConfig";
 export default function Leaderboard() {
   const clickHandler = (e: any) => {
     console.log(e.target);
-  }; 
+  };
   const [users, setusers] = useState([]);
-  useEffect(()=>{
-    getLeaderboard().then((e)=>{
-      setusers(e)
-    })
-  },[])
+  useEffect(() => {
+    getLeaderboard().then((e) => {
+      setusers(e);
+    });
+  }, []);
   return (
     <>
       <Navbar />
-      <div className="container mt-28">
+      <div className="container mt-28 min-h-screen">
         <div className="flex flex-col w-full justify-center items-center ">
           <div className="flex items-center gap-2 mb-4">
             <div className="rounded-full bg-gold p-2">
