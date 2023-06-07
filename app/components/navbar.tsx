@@ -35,36 +35,19 @@ export default function Navbar() {
     // Navbar Fixed
     window.onscroll = function () {
       const header = document.querySelector("header");
-      const fixedNav = header.offsetTop;
+      const fixedNav = header?.offsetTop;
       const toTop = document.querySelector("#totop");
-
+      // @ts-ignore
       if (window.pageYOffset > fixedNav) {
-        header.classList.add("navbar-fixed");
-        toTop.classList.remove("hidden");
+        header?.classList.add("navbar-fixed");
+        toTop?.classList.remove("hidden");
       } else {
+        // @ts-ignore
         header.classList.remove("navbar-fixed");
+        // @ts-ignore
         toTop.classList.add("hidden");
       }
     };
-
-    // Hamburger Script
-    const hamburger = document.querySelector("#hamburger");
-    const navMenu = document.querySelector("#nav-menu");
-    const welcome = document.querySelector("#herowelcome");
-    hamburger.addEventListener("click", function () {
-      hamburger.classList.toggle("hamburgeractive");
-      navMenu.classList.toggle("hidden");
-      welcome.classList.toggle("z-10");
-    });
-
-    // Outside Click to close navbar Hamburger
-    window.addEventListener("click", function (e) {
-      if (e.target != hamburger && e.target != navMenu) {
-        hamburger.classList.remove("hamburgeractive");
-        navMenu.classList.add("hidden");
-        welcome.classList.add("z-10");
-      }
-    });
   });
 
   // end test
