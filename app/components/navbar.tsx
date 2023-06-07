@@ -36,10 +36,10 @@ export default function Navbar() {
     return router.push("/");
   };
   return (
-    <header className="bg-white bg-opacity-80 absolute top-0 left-0 w-full items-center z-10 transition duration-75">
-      <div className="container">
-        <div className="relative flex items-center ">
-          <div className="flex bg-secondary items-center gap-1 px-6 py-4 sm:my-2 rounded scale-75 sm:scale-100">
+    <header className="fixed-top bg-white bg-opacity-80 absolute top-0 left-0 w-full items-center z-10 transition duration-75">
+      <div className="fixed-top container">
+        <div className="fixed-top elative flex items-center ">
+          <div className="fixed-top flex bg-secondary items-center gap-1 px-6 py-4 sm:my-2 rounded scale-75 sm:scale-100">
             <BsFillShieldFill className="text-light" />
             <a className="font-bold text-lg text-light block">SafeGate</a>
           </div>

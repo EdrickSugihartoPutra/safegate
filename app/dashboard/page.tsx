@@ -1,3 +1,4 @@
+"use client";
 import Navbar from "../components/navbar";
 import ContinueCard from "./continueCard";
 import RightContent from "./rightContent";
