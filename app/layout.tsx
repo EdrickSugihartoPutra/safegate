@@ -1,8 +1,8 @@
 import "./globals.css";
-import { Inter, Lato } from "next/font/google";
+import { Inter, Rubik, Fira_Code } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
-const lato = Lato({
+const fira_code = Fira_Code({
   weight: "400",
   subsets: ["latin"],
 });
@@ -19,7 +19,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={lato.className}>{children}</body>
+      <body className={fira_code.className}>
+        {children}
+        <script>AOS.init();</script>
+      </body>
     </html>
   );
 }

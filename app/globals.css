@@ -20,6 +20,7 @@ html {
   overflow-x: hidden;
 }
 body {
+  overflow-x: hidden;
   @apply bg-[#25344f];
 }
 
@@ -57,5 +58,5 @@ body {
 /* allLesson END */
 
 .answer-selected {
-  @apply bg-darker text-light;
+  @apply bg-dark text-light;
 }

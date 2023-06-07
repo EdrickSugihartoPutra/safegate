@@ -25,7 +25,9 @@ export default function ContinueCard() {
                   alt="testImage"
                   className="rounded-full w-20"
                 />
-                <h4 className="text-gold text-xl mt-2">Lesson Title</h4>
+                <h4 className="text-gold text-xl mt-2 text-center">
+                  Lesson Title
+                </h4>
               </div>
             </div>
             <div className="flex flex-col h-full w-full bg-primary rounded-tr-lg rounded-br-lg shadow-lg">

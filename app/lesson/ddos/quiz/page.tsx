@@ -23,9 +23,11 @@ export default function Quiz() {
     setChecked(true);
     setSelectedAnswerIndex(idx);
     if (answer === correctAnswer) {
+      // @ts-ignore
       setSelectedAnswer(true);
       console.log("true");
     } else {
+      // @ts-ignore
       setSelectedAnswer(false);
       console.log("false");
     }
@@ -57,22 +59,18 @@ export default function Quiz() {
 
   return (
     <>
-      <div className="container flex flex-col bg-light text-dark justify-center items-center mt-24 py-8 rounded-lg">
-        <h1 className="text-dark font-semibold">Kuis Ini Kuis</h1>
-        <div className="ml-4">
-          <Link href="/lesson" className="text-salmon p-1 bg-dark">
-            Home
-          </Link>
-        </div>
-        <div className="container">
-          <h2>
+      <div className="container flex flex-col w-full md:w-1/2 bg-dark text-light justify-center items-center py-8 rounded-lg">
+        <h1 className="text-light font-semibold text-3xl">Test Quiz</h1>
+
+        <div className="container flex items-center justify-center my-4">
+          <h2 className="text-lg font-semibold">
             Question: {activeQuestion + 1}
             <span>/{questions.length}</span>
           </h2>
         </div>
-        <div>
+        <div className="w-full">
           {!showResult ? (
-            <div className="quiz-container text-xl font-semibold bg-salmon py-4 px-2 rounded-lg">
+            <div className="container w-full text-xl font-semibold bg-salmon p-4 rounded-lg justify-center">
               <h3>{questions[activeQuestion].question}</h3>
               {answers.map((answer, idx) => (
                 <li
@@ -81,8 +79,8 @@ export default function Quiz() {
                   className={`${
                     selectedAnswerIndex === idx
                       ? "answer-selected"
-                      : "hover:bg-slate-200"
-                  } border rounded-lg my-2 px-2 list-none`}
+                      : "hover:bg-gold"
+                  } flex justify-center text-dark bg-light border rounded-lg my-2 px-2 list-none cursor-pointer`}
                 >
                   <span>{answer}</span>
                 </li>
@@ -90,7 +88,7 @@ export default function Quiz() {
               {checked ? (
                 <button
                   onClick={nextQuestion}
-                  className="w-full bg-slate-700 text-light shadow-lg rounded-lg"
+                  className="w-1/2 flex justify-center mx-auto bg-teal-500 text-light shadow-lg rounded-lg"
                 >
                   {activeQuestion === questions.length - 1 ? "Finish" : "Next"}
                 </button>
@@ -98,19 +96,36 @@ export default function Quiz() {
                 <button
                   onClick={nextQuestion}
                   disabled
-                  className="w-full bg-slate-200 text-gray-500 shadow-lg rounded-lg"
+                  className="w-1/2 flex justify-center mx-auto bg-slate-200 text-gray-500 shadow-lg rounded-lg"
                 >
                   {activeQuestion === questions.length - 1 ? "Finish" : "Next"}
                 </button>
               )}
             </div>
           ) : (
-            <div className="quiz-container bg-leaf">
-              <h3>Results</h3>
-              <h3>Overall {(result.score / 25) * 100}%</h3>
-              <p>
-                Total question: <span>{questions.length}</span>{" "}
-              </p>
+            <div className="quiz-container bg-leaf bg-opacity-80 rounded py-4">
+              <div className="container flex flex-col justify-center items-center">
+                <h3 className="text-2xl font-semibold my-2">Hasil</h3>
+                <h3 className="text-2xl font-semibold my-2">
+                  Skor :{" "}
+                  <span className="text-dark font-bold">
+                    {(result.score / 25) * 100}%
+                  </span>
+                </h3>
+                <p className="text-2xl my-2">
+                  <span className="text-dark font-bold">
+                    {result.correctAnswers}
+                  </span>{" "}
+                  jawaban benar dari{" "}
+                  <span className="text-dark font-bold">
+                    {questions.length}
+                  </span>{" "}
+                  pertanyaan
+                </p>
+                <button className="font-semibold px-4 py-2 mt-4 bg-dark shadow shadow-dark rounded-md hover:bg-darker transition">
+                  <Link href="/lesson">Selesai</Link>
+                </button>
+              </div>
             </div>
           )}
         </div>

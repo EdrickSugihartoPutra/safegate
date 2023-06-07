@@ -4,7 +4,7 @@ export default function RightContent() {
   return (
     <section className="flex flex-col items-center">
       <div className="container flex justify-center mb-2">
-        <h2 className="font-semibold text-xl text-light ">
+        <h2 className="font-semibold text-md text-light text-center my-4">
           Peringkat Pengguna
         </h2>
       </div>
