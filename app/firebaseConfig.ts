@@ -6,8 +6,9 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
-import { arrayRemove, arrayUnion, collection, doc, documentId, getDoc, getDocs, getFirestore, query, QueryDocumentSnapshot, serverTimestamp, setDoc, Timestamp, updateDoc, where } from "firebase/firestore";
+import { arrayRemove, arrayUnion, collection, doc, DocumentData, documentId, getDoc, getDocs, getFirestore, query, QueryDocumentSnapshot, serverTimestamp, setDoc, Timestamp, updateDoc, where } from "firebase/firestore";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
+import placeHolder from "../public/placeholder.jpg";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -69,4 +70,35 @@ export async function signIn(email: string, password: string) {
   // }
 
   return { result, error };
+}
+
+export async function getLeaderboard() {
+  let listuser:any = [];
+  const querySnapshot = await getDocs(collection(db, "users"));
+  querySnapshot.forEach((e)=>{
+    const res = e.data()
+    listuser.push(
+      {
+        name: res.username,
+        score: res.score ? res.score : 0,
+        pic: placeHolder,
+        level:Math.floor(res.score ? res.score : 0 /100),
+      }
+    )
+  })
+  console.log(listuser);
+  // if(querySnapshot.exists()){
+  //   const queryResults = querySnapshot.data()
+  //   console.log(queryResults)
+  //   listuser = queryResults? queryResults.map((e:DocumentData)=>{
+  //     return{
+  //       name: e.username,
+  //       score: e.score,
+  //       pic: placeHolder,
+  //     }
+      
+  //   }) : [];
+  // }
+
+  return listuser;
 }

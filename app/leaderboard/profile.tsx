@@ -11,7 +11,7 @@ export default function Profile({ userData }: any) {
 function item(data: any) {
   return (
     <>
-      {data.map((user: any, index: any) => (
+      {data? data.map((user: any, index: any) => (
         <div className="flex w-full" key={index}>
           <div className="item flex items-center bg-light rounded-lg w-full py-2 mb-2 justify-evenly shadow-lg shadow-dark">
             <Image
@@ -23,12 +23,12 @@ function item(data: any) {
             />
             <div className="info">
               <h3 className="text-dark">{user.name}</h3>
-              <span>Lvl.xx</span>
+              <span>Lvl.{user.level}</span>
             </div>
-            <div className="item flex">{user.score}</div>
+            <div className="item flex text-dark">{user.score}</div>
           </div>
         </div>
-      ))}
+      )) : ""}
     </>
   );
 }

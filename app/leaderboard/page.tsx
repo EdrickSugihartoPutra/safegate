@@ -1,17 +1,23 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../components/navbar";
-import { users } from "./dummy";
 
 import { BiTrophy } from "react-icons/bi";
 import Profile from "./profile";
 import Footer from "../components/footer";
+import { getLeaderboard } from "../firebaseConfig";
 
 export default function Leaderboard() {
   const clickHandler = (e: any) => {
     console.log(e.target);
-  };
+  }; 
+  const [users, setusers] = useState([]);
+  useEffect(()=>{
+    getLeaderboard().then((e)=>{
+      setusers(e)
+    })
+  },[])
   return (
     <>
       <Navbar />
