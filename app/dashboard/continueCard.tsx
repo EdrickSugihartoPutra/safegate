@@ -26,7 +26,7 @@ export default function ContinueCard() {
   }
   return (
     <>
-      continueState.id?
+      {continueState.id?
       <section id="continueCard">
         <div className="relative container">
           <div className="flex items-center my-4">
@@ -75,7 +75,7 @@ export default function ContinueCard() {
             </div>
           </div>
         </div>
-      </section>:<></>
+      </section>:<></>}
     </>
   );
 }
