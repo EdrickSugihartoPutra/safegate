@@ -28,7 +28,7 @@ export default function Lesson() {
               </div>
               <div className="flex w-full h-full justify-center items-center py-4">
                 <Link
-                  href={subject.link}
+                  href={`/lesson/${subject.id}`}
                   className="bg-dark rounded text-white px-4 py-2 transition duration-150 hover:bg-gold hover:text-dark hover:font-semibold"
                 >
                   Pelajari
