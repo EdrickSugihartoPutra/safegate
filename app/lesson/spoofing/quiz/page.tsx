@@ -21,12 +21,14 @@ export default function Quiz() {
   const { question, answers, correctAnswer } = questions[activeQuestion];
   const router = useRouter();
   const getCaculation = ()=>{
+    const correctAnswers = result.correctAnswers;
     console.log({
-      score:result.correctAnswers * 50,
-      winres:result.correctAnswers*50 >= 150 ? "win":'lose',
+      score:correctAnswers * 50,
+      winres:correctAnswers*50 >= 150 ? "win":'lose',
+      coins:correctAnswers *5,
       quizdone:"yes",
     })
-    increasequizasdas(result.correctAnswers * 50).then(()=>{
+    increasequizasdas(result.correctAnswers).then(()=>{
       router.push('/lesson');
     })
     

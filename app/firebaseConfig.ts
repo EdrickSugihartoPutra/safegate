@@ -47,6 +47,7 @@ export async function signUp(email: string, password: string, username:string) {
       UID:auth.currentUser!.uid,
       username: username,
       coins:0,
+      score:0,
     });
   } catch (e) {
     error = e;
@@ -102,14 +103,18 @@ export async function getUserInfo() {
   };
 }
 
-export async function increasequizasdas(score:number) {
+export async function increasequizasdas(correctAnswers:number) {
+  const score = correctAnswers * 50;
+  const coins = correctAnswers * 5
   if(score >= 150){
     try {
       const querySnapshot = await getDoc(doc(db, "users", auth.currentUser!.uid));
       if(querySnapshot.exists()){
         const adsfdghjk = querySnapshot.data().score ? querySnapshot.data().score : 0
+        const currcoins = querySnapshot.data().coins ? querySnapshot.data().coins : 0
         await updateDoc(doc(db, "users", auth.currentUser!.uid),{
-          score: adsfdghjk + score
+          score: adsfdghjk + score,
+          coins: coins + currcoins,
         }); 
       }
     } catch (e) {
