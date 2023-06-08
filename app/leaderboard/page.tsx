@@ -11,11 +11,26 @@ import { getLeaderboard } from "../firebaseConfig";
 export default function Leaderboard() {
   const clickHandler = (e: any) => {
     console.log(e.target);
+    setusers(users.reverse());
+    setisDescendingSort(isDescendingSort?false:true);
   };
   const [users, setusers] = useState([]);
+  const [isDescendingSort, setisDescendingSort] = useState(false);
   useEffect(() => {
     getLeaderboard().then((e) => {
-      setusers(e);
+      setusers(e.sort((a, b) => {
+        const nameA = a.score;
+        const nameB = b.score;
+        if (nameA < nameB) {
+          return 1;
+        }
+        if (nameA > nameB) {
+          return -1;
+        }
+      
+        // names must be equal
+        return 0;
+      }));
     });
   }, []);
   return (
@@ -40,21 +55,7 @@ export default function Leaderboard() {
               className="rounded-full bg-light text-dark px-4 py-1 font-semibold shadow-lg shadow-dark hover:bg-slate-300"
               data-id="7"
             >
-              7 Days
-            </button>
-            <button
-              onClick={clickHandler}
-              className="rounded-full bg-light text-dark px-4 py-1 font-semibold shadow-lg shadow-dark hover:bg-slate-300"
-              data-id="30"
-            >
-              30 Days
-            </button>
-            <button
-              onClick={clickHandler}
-              className="rounded-full bg-light text-dark px-4 py-1 font-semibold shadow-lg shadow-dark hover:bg-slate-300"
-              data-id="0"
-            >
-              All-Time
+              {isDescendingSort? "ascending":"decending"}
             </button>
           </div>
 
