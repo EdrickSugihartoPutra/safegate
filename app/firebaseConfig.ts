@@ -92,7 +92,8 @@ export async function getUserInfo() {
     if(querySnapshot.exists()){
       return {
         username:querySnapshot.data().username,
-        level:Math.floor((querySnapshot.data().score?querySnapshot.data().score:0 )/100)
+        level:Math.floor((querySnapshot.data().score?querySnapshot.data().score:0 )/100),
+        coins:querySnapshot.data().coins?querySnapshot.data().coins:0,
       }
     }
   } catch (e) {
@@ -100,6 +101,7 @@ export async function getUserInfo() {
   return {
     username:"NULL",
     level:0,
+    coins:0,
   };
 }
 

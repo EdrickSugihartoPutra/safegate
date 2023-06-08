@@ -9,6 +9,7 @@ export default function ProfileCard() {
   const [userName, setuserName] = useState({
     username:"NULL",
     level:0,
+    coins:0,
   });
   useEffect(()=>{
     getUserInfo().then((e)=>{
@@ -44,7 +45,7 @@ export default function ProfileCard() {
               <p className="sm:hidden text-xl text-light">XX</p>
             </div>
             <div className="ml-4 scale-75 sm:scale-100">
-              <p className="hidden sm:block text-xl text-light">XX</p>
+              <p className="hidden sm:block text-xl text-light">{userName.coins}</p>
               <p className="text-lg font-medium text-light">Latihan Selesai</p>
             </div>
           </div>
