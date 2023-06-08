@@ -18,7 +18,7 @@ export default function Leaderboard() {
   const [isDescendingSort, setisDescendingSort] = useState(false);
   useEffect(() => {
     getLeaderboard().then((e) => {
-      setusers(e.sort((a, b) => {
+      setusers(e.sort((a:any, b:any) => {
         const nameA = a.score;
         const nameB = b.score;
         if (nameA < nameB) {
