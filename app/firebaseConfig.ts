@@ -126,3 +126,36 @@ export async function increasequizasdas(correctAnswers:number) {
   }
   alert('kamu blm beruntung. coba lagi ya!')
 }
+
+export async function getLatestLesson() {
+  try {
+    const querySnapshot = await getDoc(doc(db, "users", auth.currentUser!.uid));
+    if(querySnapshot.exists()){
+      return {
+        id:querySnapshot.data().latestLessonId,
+      }
+    }
+  } catch (e) {
+  }
+  return {
+    id:null
+  };
+}
+
+export async function setLatestLesson(lastetLessonID:number) {
+    try {
+      await updateDoc(doc(db, "users", auth.currentUser!.uid),{
+        latestLessonId:lastetLessonID,
+      }); 
+    } catch (e) {
+    }
+}
+
+export async function removeLatestLesson() {
+  try {
+    await updateDoc(doc(db, "users", auth.currentUser!.uid),{
+      latestLessonId:0,
+    }); 
+  } catch (e) {
+  }
+}

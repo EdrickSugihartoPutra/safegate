@@ -1,12 +1,17 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { lessons } from "./lessonJson";
-
+import { useEffect, useState } from "react";
+import { setLatestLesson } from "@/app/firebaseConfig";
 export default function page({ params }: { params: { slug: string } }) {
   const pageId = parseInt(params.slug);
   const lesson = lessons.find((element => element.id == pageId))!;
   const quizlink = `/lesson/${pageId}/quiz/${pageId}`
+  useEffect(()=>{
+    setLatestLesson(pageId)
+  },[])
   return (
     <>
       <div className="container flex self-center text-light bg-primary justify-center w-[95%] px-0 sm:mx-1 mb-4 rounded-lg shadow-lg shadow-dark">

@@ -1,5 +1,5 @@
 "use client";
-import { increasequizasdas } from "@/app/firebaseConfig";
+import { increasequizasdas, removeLatestLesson } from "@/app/firebaseConfig";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -30,7 +30,7 @@ export default function Quiz({ params }: { params: { id: string } }) {
       coins:correctAnswers *5,
       quizdone:"yes",
     })
-    increasequizasdas(result.correctAnswers).then(()=>{
+    increasequizasdas(result.correctAnswers).then(()=>removeLatestLesson()).then(()=>{
       router.push('/lesson');
     })
     
