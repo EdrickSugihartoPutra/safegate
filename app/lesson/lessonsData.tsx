@@ -3,7 +3,7 @@ import hacking from "../../public/icons/hacker.png";
 import cyberCrime from "../../public/icons/cybercrime.png";
 import spoofing from "../../public/icons/spoofing.png";
 import carding from "../../public/icons/carding.png";
-
+import ransom from "../../public/icons/ransomware.png";
 export const lessonsIdx = [
   {
     id: 1,
@@ -20,7 +20,7 @@ export const lessonsIdx = [
     link: "/lesson/cybercrime",
   },
   {
-    id: 2,
+    id: 11,
     name: "Cracking dan Hacking",
     pic: hacking,
     materi:
@@ -35,7 +35,7 @@ export const lessonsIdx = [
     link: "/lesson/hack",
   },
   {
-    id: 3,
+    id: 2,
     name: "Spoofing",
     pic: spoofing,
     materi: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium, minima magnam repellat sed nesciunt minus pariatur dolore non tempora id, aspernatur deserunt facilis dicta illo quae dolorum maiores consectetur veniam iste! Ipsum sequi, voluptas, unde corporis, incidunt odio quasi cupiditate quisquam animi adipisci fugiat! Magni excepturi, dolore perferendis reiciendis laudantium, illum placeat accusamus maiores eius optio voluptates quasi laboriosam itaque architecto officiis animi autem assumenda quidem incidunt. Corporis provident nulla ut nihil rem, architecto quasi id quod laborum enim optio possimus reprehenderit voluptate excepturi eaque vitae voluptas labore iusto, ipsam aliquam incidunt fugit officia corrupti vel! Nesciunt commodi cumque nulla.`,
@@ -49,23 +49,23 @@ export const lessonsIdx = [
     link: "/lesson/spoofing",
   },
   // ransomeware
-  // {
-  //   id: 3,
-  //   name: "Ransomeware",
-  //   pic: ransom,
-  //   materi: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium, minima magnam repellat sed nesciunt minus pariatur dolore non tempora id, aspernatur deserunt facilis dicta illo quae dolorum maiores consectetur veniam iste! Ipsum sequi, voluptas, unde corporis, incidunt odio quasi cupiditate quisquam animi adipisci fugiat! Magni excepturi, dolore perferendis reiciendis laudantium, illum placeat accusamus maiores eius optio voluptates quasi laboriosam itaque architecto officiis animi autem assumenda quidem incidunt. Corporis provident nulla ut nihil rem, architecto quasi id quod laborum enim optio possimus reprehenderit voluptate excepturi eaque vitae voluptas labore iusto, ipsam aliquam incidunt fugit officia corrupti vel! Nesciunt commodi cumque nulla.`,
-  //   materiLanjut:
-  //     "Selanjutnya adalah cracking, cracking merupakan istilah yang masih berkaitan erat dengan istilah hacking. Sama halnya dengan aktivitas hacking, cracking merupakan aktivitas ilegal yang dilakukan oleh pihak",
-  //   avoidance: [
-  //     "Lorem ipsum, dolor sit amet consectetur adipisicing elit. 1",
-  //     "Lorem ipsum, dolor sit amet consectetur adipisicing elit. 2",
-  //     "Lorem ipsum, dolor sit amet consectetur adipisicing elit. 3",
-  //   ],
-  //   link: "/lesson/ransom",
-  // },
+  {
+    id: 3,
+    name: "Ransomeware",
+    pic: ransom,
+    materi: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium, minima magnam repellat sed nesciunt minus pariatur dolore non tempora id, aspernatur deserunt facilis dicta illo quae dolorum maiores consectetur veniam iste! Ipsum sequi, voluptas, unde corporis, incidunt odio quasi cupiditate quisquam animi adipisci fugiat! Magni excepturi, dolore perferendis reiciendis laudantium, illum placeat accusamus maiores eius optio voluptates quasi laboriosam itaque architecto officiis animi autem assumenda quidem incidunt. Corporis provident nulla ut nihil rem, architecto quasi id quod laborum enim optio possimus reprehenderit voluptate excepturi eaque vitae voluptas labore iusto, ipsam aliquam incidunt fugit officia corrupti vel! Nesciunt commodi cumque nulla.`,
+    materiLanjut:
+      "Selanjutnya adalah cracking, cracking merupakan istilah yang masih berkaitan erat dengan istilah hacking. Sama halnya dengan aktivitas hacking, cracking merupakan aktivitas ilegal yang dilakukan oleh pihak",
+    avoidance: [
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. 1",
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. 2",
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. 3",
+    ],
+    link: "/lesson/ransom",
+  },
 
   {
-    id: 4,
+    id: 5,
     name: "Carding",
     pic: carding,
     materi: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium, minima magnam repellat sed nesciunt minus pariatur dolore non tempora id, aspernatur deserunt facilis dicta illo quae dolorum maiores consectetur veniam iste! Ipsum sequi, voluptas, unde corporis, incidunt odio quasi cupiditate quisquam animi adipisci fugiat! Magni excepturi, dolore perferendis reiciendis laudantium, illum placeat accusamus maiores eius optio voluptates quasi laboriosam itaque architecto officiis animi autem assumenda quidem incidunt. Corporis provident nulla ut nihil rem, architecto quasi id quod laborum enim optio possimus reprehenderit voluptate excepturi eaque vitae voluptas labore iusto, ipsam aliquam incidunt fugit officia corrupti vel! Nesciunt commodi cumque nulla.`,
@@ -79,7 +79,7 @@ export const lessonsIdx = [
     link: "/lesson/carding",
   },
   {
-    id: 5,
+    id: 6,
     name: "Phishing",
     pic: phishing,
     materi: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium, minima magnam repellat sed nesciunt minus pariatur dolore non tempora id, aspernatur deserunt facilis dicta illo quae dolorum maiores consectetur veniam iste! Ipsum sequi, voluptas, unde corporis, incidunt odio quasi cupiditate quisquam animi adipisci fugiat! Magni excepturi, dolore perferendis reiciendis laudantium, illum placeat accusamus maiores eius optio voluptates quasi laboriosam itaque architecto officiis animi autem assumenda quidem incidunt. Corporis provident nulla ut nihil rem, architecto quasi id quod laborum enim optio possimus reprehenderit voluptate excepturi eaque vitae voluptas labore iusto, ipsam aliquam incidunt fugit officia corrupti vel! Nesciunt commodi cumque nulla.`,

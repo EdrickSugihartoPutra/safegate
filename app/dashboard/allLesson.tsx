@@ -43,7 +43,7 @@ export default function AllLesson() {
                     className={`m-0 object-cover `}
                   />
                   <Link
-                    href={subject.link}
+                    href={`/lesson/${subject.id}`}
                     className="px-10 py-2 rounded-sm text-white bg-dark mt-4 transition duration-150 hover:bg-gold hover:text-dark hover:font-semibold"
                   >
                     Mulai
