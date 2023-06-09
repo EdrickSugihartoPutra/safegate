@@ -48,6 +48,8 @@ export async function signUp(email: string, password: string, username:string) {
       username: username,
       coins:0,
       score:0,
+      soldStoreItemIDs:[1],
+      selectedPicID:1,
     });
   } catch (e) {
     error = e;
@@ -77,7 +79,7 @@ export async function getLeaderboard() {
       {
         name: res.username,
         score: res.score ? res.score : 0,
-        pic: placeHolder,
+        pic: res.selectedPicID?res.selectedPicID:1,
         level:Math.floor((res.score ? res.score : 0 )/100),
       }
     )
@@ -94,6 +96,7 @@ export async function getUserInfo() {
         username:querySnapshot.data().username,
         level:Math.floor((querySnapshot.data().score?querySnapshot.data().score:0 )/100),
         coins:querySnapshot.data().coins?querySnapshot.data().coins:0,
+        selectedPicID:querySnapshot.data().selectedPicID?querySnapshot.data().selectedPicID:1,
       }
     }
   } catch (e) {
@@ -102,6 +105,7 @@ export async function getUserInfo() {
     username:"NULL",
     level:0,
     coins:0,
+    selectedPicID:1,
   };
 }
 
@@ -155,6 +159,55 @@ export async function removeLatestLesson() {
   try {
     await updateDoc(doc(db, "users", auth.currentUser!.uid),{
       latestLessonId:0,
+    }); 
+  } catch (e) {
+  }
+}
+
+export async function addStoreData(id:number,amount:number) {
+  console.log('attempt to buy')
+  try {
+    const querySnapshot = await getDoc(doc(db, "users", auth.currentUser!.uid));
+    if(querySnapshot.exists()){
+      const coinsData = querySnapshot.data().coins;
+      if(coinsData - amount >=0){
+        await updateDoc(doc(db, "users", auth.currentUser!.uid),{
+          soldStoreItemIDs:arrayUnion(id),
+          coins:coinsData - amount,
+        }); 
+      }else{
+        alert('coin ga cukup coy')
+      }
+    }
+    
+  } catch (e) {
+    console.log(e)
+  }
+}
+
+export async function getStoreData() {
+  try {
+    const querySnapshot = await getDoc(doc(db, "users", auth.currentUser!.uid));
+    if(querySnapshot.exists()){
+      const storeData = querySnapshot.data().soldStoreItemIDs;
+      const selectedpic = querySnapshot.data().selectedPicID;
+      return {
+        soldStoreItemIDs:storeData? storeData : [1],
+        selectedPicID:selectedpic,
+      }
+    }
+  } catch (e) {
+  }
+  return {
+    soldStoreItemIDs:[1],
+    selectedPicID:1,
+  };
+}
+
+export async function setProfilePic(selectedPicID:number) {
+  try {
+    await updateDoc(doc(db, "users", auth.currentUser!.uid),{
+      selectedPicID:selectedPicID,
     }); 
   } catch (e) {
   }

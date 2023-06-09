@@ -4,18 +4,20 @@ import { BsJournalBookmark } from "react-icons/bs";
 import { HiOutlineBadgeCheck } from "react-icons/hi";
 import placeHolder from "../../public/placeholder.jpg";
 import { getUserInfo } from "../firebaseConfig";
+import { storeProfileData } from "./ProfileStoreJson";
 
 export default function ProfileCard() {
   const [userName, setuserName] = useState({
     username:"NULL",
     level:0,
     coins:0,
+    selectedPicID:1,
   });
   useEffect(()=>{
     getUserInfo().then((e)=>{
       setuserName(e)
     })
-  },[])
+  })
   return (
     <section className="relative mt-4" id="profileCard">
       <div className="container">
@@ -24,8 +26,8 @@ export default function ProfileCard() {
           <div className="bg-white-500 flex items-center w-full justify-center my-2">
             <div>
               <Image
-                src={placeHolder}
-                alt="profilePic"
+                src={storeProfileData.find(e=>(e.id==userName.selectedPicID))!.profilePic}
+                alt={storeProfileData.find(e=>(e.id==userName.selectedPicID))!.avatarName}
                 className="rounded-full border bg-white w-20 sm:w-32 sm:scale-105 "
               />
             </div>

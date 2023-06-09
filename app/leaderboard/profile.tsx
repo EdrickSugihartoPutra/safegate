@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { storeProfileData } from "../dashboard/ProfileStoreJson";
 
 export default function Profile({ userData }: any) {
   return (
@@ -15,8 +16,8 @@ function item(data: any) {
         <div className="flex w-full" key={index}>
           <div className="item flex items-center bg-light rounded-lg w-full py-2 mb-2 justify-evenly shadow-lg shadow-dark">
             <Image
-              src={user.pic}
-              alt="profile"
+              src={storeProfileData.find(e=>(e.id==user.pic))!.profilePic}
+              alt={storeProfileData.find(e=>(e.id==user.pic))!.avatarName}
               width={40}
               height={40}
               className="rounded-full w-20"

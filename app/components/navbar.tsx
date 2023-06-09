@@ -5,9 +5,10 @@ import { useState } from "react";
 import { FiInfo } from "react-icons/fi";
 import { BsFillShieldFill } from "react-icons/bs";
 import { signOut } from "firebase/auth";
-import { auth } from "../firebaseConfig";
+import { auth, getUserInfo } from "../firebaseConfig";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import { storeProfileData } from "../dashboard/ProfileStoreJson";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,6 +17,12 @@ export default function Navbar() {
   const hamburgerToggle = () => {
     setIsOpen(!isOpen);
   };
+  const [userName, setuserName] = useState({
+    username:"NULL",
+    level:0,
+    coins:0,
+    selectedPicID:1,
+  });
 
   useEffect(() => {
     if (typeof window !== undefined || typeof document !== undefined) {
@@ -30,6 +37,9 @@ export default function Navbar() {
         }
       };
     }
+    getUserInfo().then((e)=>{
+      setuserName(e)
+    })
   });
 
   const logout = async () => {
@@ -115,8 +125,8 @@ export default function Navbar() {
               className="flex w-full gap-2 rounded bg-salmon py-2 px-4 items-center shadow-lg shado-dark hover:bg-[#FE532D] hover:cursor-pointer"
             >
               <Image
-                src="/placeholder.jpg"
-                alt=""
+                src={storeProfileData.find(e=>(e.id==userName.selectedPicID))!.profilePic}
+                alt={storeProfileData.find(e=>(e.id==userName.selectedPicID))!.avatarName}
                 height={30}
                 width={30}
                 className="rounded-full"
