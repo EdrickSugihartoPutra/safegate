@@ -40,7 +40,7 @@ export default function Navbar() {
     getUserInfo().then((e)=>{
       setuserName(e)
     })
-  });
+  },[]);
 
   const logout = async () => {
     await signOut(auth);

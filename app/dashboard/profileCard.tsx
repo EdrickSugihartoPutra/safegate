@@ -17,7 +17,7 @@ export default function ProfileCard() {
     getUserInfo().then((e)=>{
       setuserName(e)
     })
-  })
+  },[])
   return (
     <section className="relative mt-4" id="profileCard">
       <div className="container">
