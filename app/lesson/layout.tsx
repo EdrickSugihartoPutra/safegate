@@ -1,6 +1,5 @@
 import React from "react";
 import Navbar from "../components/navbar";
-import { lessonsIdx } from "./lessonsData";
 import Image from "next/image";
 import Footer from "../components/footer";
 
