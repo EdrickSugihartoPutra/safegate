@@ -1,9 +1,11 @@
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { BsCoin } from "react-icons/bs";
 import { addStoreData, getStoreData, setProfilePic } from "../firebaseConfig";
 import { storeProfileData } from "./ProfileStoreJson";
 export default function Store() {
+  const router = useRouter();
   const [storedata, setstoredata] = useState<any>([{
     id:1,
     avatarName:"",
@@ -41,6 +43,7 @@ const mapStorewithdb = (items: { soldStoreItemIDs: any;selectedPicID:any; }) => 
       getStoreData().then((items)=>{
         const mergeData = mapStorewithdb(items);
         setstoredata(mergeData)
+        router.push('/reloading')
       })
     })
     
