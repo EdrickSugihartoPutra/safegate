@@ -8,7 +8,7 @@ import ransom from "../../../public/icons/ransomware.png";
 export const lessons = [
   {
     id: 1,
-    name: "Cyber-crime",
+    name: "Cybercrime",
     pic: cyberCrime,
     definisi:
       "Cybercrime adalah aktivitas kriminal yang menargetkan atau menggunakan komputer, jaringan komputer, atau perangkat yang terhubung dalam jaringan. Sebagian besar kejahatan dunia maya dilakukan oleh para penjahat dunia maya atau peretas yang ingin mendapatkan uang. Namun, terkadang kejahatan dunia maya bertujuan merusak komputer atau jaringan dengan alasan selain keuntungan finansial. Alasan tersebut bisa bersifat politik atau personal. Kejahatan dunia maya dapat dilakukan oleh individu maupun organisasi. Beberapa penjahat dunia maya terorganisir, menggunakan teknik yang canggih, dan memiliki keahlian teknis yang tinggi. Yang lainnya adalah peretas pemula.",
@@ -37,21 +37,8 @@ export const lessons = [
     ],
     link: "/lesson/cybercrime/quiz",
   },
+
   {
-    id: 3,
-    name: "Ransomeware",
-    pic: ransom,
-    materi: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium, minima magnam repellat sed nesciunt minus pariatur dolore non tempora id, aspernatur deserunt facilis dicta illo quae dolorum maiores consectetur veniam iste! Ipsum sequi, voluptas, unde corporis, incidunt odio quasi cupiditate quisquam animi adipisci fugiat! Magni excepturi, dolore perferendis reiciendis laudantium, illum placeat accusamus maiores eius optio voluptates quasi laboriosam itaque architecto officiis animi autem assumenda quidem incidunt. Corporis provident nulla ut nihil rem, architecto quasi id quod laborum enim optio possimus reprehenderit voluptate excepturi eaque vitae voluptas labore iusto, ipsam aliquam incidunt fugit officia corrupti vel! Nesciunt commodi cumque nulla.`,
-    materiLanjut:
-      "Selanjutnya adalah cracking, cracking merupakan istilah yang masih berkaitan erat dengan istilah hacking. Sama halnya dengan aktivitas hacking, cracking merupakan aktivitas ilegal yang dilakukan oleh pihak",
-    avoidance: [
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. 1",
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. 2",
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. 3",
-    ],
-    link: "/lesson/ransom/quiz",
-  },
-    {
     id: 2,
     name: "Spoofing",
     pic: spoofing,
@@ -216,6 +203,4 @@ export const lessons = [
     ],
     link: "/lesson/phishing/quiz",
   },
-  
-
 ];

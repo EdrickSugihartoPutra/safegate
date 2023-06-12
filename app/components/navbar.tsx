@@ -18,10 +18,10 @@ export default function Navbar() {
     setIsOpen(!isOpen);
   };
   const [userName, setuserName] = useState({
-    username:"NULL",
-    level:0,
-    coins:0,
-    selectedPicID:1,
+    username: "NULL",
+    level: 0,
+    coins: 0,
+    selectedPicID: 1,
   });
 
   useEffect(() => {
@@ -37,10 +37,10 @@ export default function Navbar() {
         }
       };
     }
-    getUserInfo().then((e)=>{
-      setuserName(e)
-    })
-  },[]);
+    getUserInfo().then((e) => {
+      setuserName(e);
+    });
+  }, []);
 
   const logout = async () => {
     await signOut(auth);
@@ -125,8 +125,14 @@ export default function Navbar() {
               className="flex w-full gap-2 rounded bg-salmon py-2 px-4 items-center shadow-lg shado-dark hover:bg-[#FE532D] hover:cursor-pointer"
             >
               <Image
-                src={storeProfileData.find(e=>(e.id==userName.selectedPicID))!.profilePic}
-                alt={storeProfileData.find(e=>(e.id==userName.selectedPicID))!.avatarName}
+                src={
+                  storeProfileData.find((e) => e.id == userName.selectedPicID)!
+                    .profilePic
+                }
+                alt={
+                  storeProfileData.find((e) => e.id == userName.selectedPicID)!
+                    .avatarName
+                }
                 height={30}
                 width={30}
                 className="rounded-full"

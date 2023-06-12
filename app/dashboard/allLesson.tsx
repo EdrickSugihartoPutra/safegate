@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function AllLesson() {
   return (
-    <section id="allLesson" className="mb-8">
+    <section id="allLesson">
       <div className="relative container">
         <div className="flex items-center my-4">
           <div className="flex items-center bg-dark  rounded-full py-2 px-4">

@@ -1,3 +1,5 @@
+// import AOS from "aos";
+import "aos/dist/aos.css";
 import "./globals.css";
 import { Inter, Rubik, Fira_Code } from "next/font/google";
 

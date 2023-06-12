@@ -2,14 +2,25 @@ import React from "react";
 import { lessonsIdx } from "./lessonsData";
 import Image from "next/image";
 import Link from "next/link";
+import { BsJournalBookmark } from "react-icons/bs";
 
 export default function Lesson() {
   return (
     <>
+      <div className="container flex justify-center items-center gap-1 w-fit my-4 py-1 px-4 bg-dark text-light rounded-full shadow-md shadow-darker">
+        {/* <div className="flex flex-col"> */}
+        <div className="p-2 rounded-full bg-gold shadow-md shadow-dark">
+          <BsJournalBookmark size={20} className="text-dark" />
+        </div>
+        <div>
+          <h2 className="font-bold text-xl">Semua Pelajaran</h2>
+        </div>
+        {/* </div> */}
+      </div>
       {lessonsIdx.map((subject, idx) => (
         <div
           key={idx}
-          className="container bg-transparent shadow-lg px-2 shadow-dark rounded-lg"
+          className="container bg-transparent shadow-lg p-0 shadow-dark"
         >
           <div className="flex flex-col mt-4 sm:flex-row">
             <div className="flex bg-primary w-full justify-center items-center rounded-tl-lg rounded-tr-lg sm:w-1/3 sm:py-4 sm:rounded-tr-none sm:rounded-bl-lg">

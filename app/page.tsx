@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-// import Navbar from "./components/navbar";
 import { signIn } from "./firebaseConfig";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -25,7 +24,6 @@ export default function Home() {
   };
   return (
     <>
-      {/* <Navbar /> */}
       <div className="flex items-center justify-center">
         <div className="container w-[90%] mx-2 bg-dark flex flex-col items-center justify-center sm:w-1/2 lg:w-1/3 mt-20 p-8 rounded-lg shadow-lg shadow-darker">
           <h2 className="text-3xl font-bold text-light mb-12 ">
@@ -61,7 +59,7 @@ export default function Home() {
                 >
                   Login
                 </button>
-                <p className="text-xs">
+                <p className="text-xs text-center">
                   Belum punya akun?{" "}
                   <span className="text-gold hover:font-semibold hover:cursor-pointer">
                     <Link href="/signup">buat akun disini</Link>
