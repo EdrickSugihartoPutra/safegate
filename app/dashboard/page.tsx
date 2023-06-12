@@ -10,6 +10,7 @@ import Store from "./store";
 export default function Dashboard() {
   return (
     <>
+    <div className="min-h-screen">
       <Navbar />
       <div className="flex flex-row w-full mt-20">
         {/* Left Side */}
@@ -26,7 +27,7 @@ export default function Dashboard() {
           <Store />
         </div>
       </div>
-      <Footer />
+      </div>
     </>
   );
 }

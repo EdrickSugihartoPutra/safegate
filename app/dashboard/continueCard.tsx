@@ -2,7 +2,7 @@ import { BsJournalBookmark } from "react-icons/bs";
 import Image from "next/image";
 import placeHolder from "../../public/placeholder.jpg";
 import { useEffect, useState } from "react";
-import { getLatestLesson } from "../firebaseConfig";
+import { getLatestLesson, getTotalLesson } from "../firebaseConfig";
 import { lessonsIdx } from "../lesson/lessonsData";
 import { useRouter } from "next/navigation";
 export default function ContinueCard() {
@@ -35,13 +35,13 @@ export default function ContinueCard() {
                 <BsJournalBookmark size={20} className="text-dark" />
               </div>
               <h2 className="text-light font-semibold text-md ml-2">
-                Lanjut Pelajari
+                Terakhir Dipelajari
               </h2>
             </div>
           </div>
           <div className="relative container  bg-transparent shadow-lg h-[200px] px-0 shadow-dark">
             <div className="flex mt-4 h-full">
-              <div className="flex bg-dark w-2/5 justify-center items-center left-0 h-full rounded-tl-lg rounded-bl-lg ">
+              <div className="flex bg-dark w-2/5 justify-center items-center left-0 h-full rounded-tl-lg rounded-bl-lg overflow-auto">
                 <div className="flex flex-col items-center justify-center h-full scale-75 sm:scale-100">
                   <Image
                     src={continueState.pic}

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { BsJournalBookmark } from "react-icons/bs";
 import { HiOutlineBadgeCheck } from "react-icons/hi";
 import placeHolder from "../../public/placeholder.jpg";
-import { getUserInfo } from "../firebaseConfig";
+import { getTotalLesson, getUserInfo } from "../firebaseConfig";
 import { storeProfileData } from "./ProfileStoreJson";
 
 export default function ProfileCard() {
@@ -13,10 +13,12 @@ export default function ProfileCard() {
     coins:0,
     selectedPicID:1,
   });
+  const [totallesson, settotallesson] = useState<number>(0);
   useEffect(()=>{
     getUserInfo().then((e)=>{
       setuserName(e)
     })
+    getTotalLesson().then((e)=>settotallesson(e.lessondone.length))
   },[])
   return (
     <section className="relative mt-4" id="profileCard">
@@ -62,7 +64,7 @@ export default function ProfileCard() {
               <p className="sm:hidden text-xl text-light">XX</p>
             </div>
             <div className="ml-4 scale-75 sm:scale-100">
-              <p className="hidden sm:block text-xl text-light">XX</p>
+              <p className="hidden sm:block text-xl text-light">{totallesson}</p>
               <p className="text-lg font-medium text-light">
                 Pelajaran Selesai
               </p>

@@ -9,6 +9,7 @@ export const lessonsIdx = [
     id: 1,
     name: "Cyber Crime",
     pic: cyberCrime,
+    slug:"",
     materi: `Denial of Service (DoS) dan Distributed Denial of Service (DDoS) pada dasarnya merupakan jenis serangan cyber yang sama, yang dimana serangan ini sama-sama bertujuan untuk membebani website, layanan online, ataupun sistem komputer target, sehingga mengakibatkan server website menjadi down dan tidak bisa diakses oleh pengunjung`,
     materiLanjut:
       "Selanjutnya adalah cracking, cracking merupakan istilah yang masih berkaitan erat dengan istilah hacking. Sama halnya dengan aktivitas hacking, cracking merupakan aktivitas ilegal yang dilakukan oleh pihak",

@@ -165,7 +165,6 @@ export async function removeLatestLesson() {
 }
 
 export async function addStoreData(id:number,amount:number) {
-  console.log('attempt to buy')
   try {
     const querySnapshot = await getDoc(doc(db, "users", auth.currentUser!.uid));
     if(querySnapshot.exists()){
@@ -211,4 +210,33 @@ export async function setProfilePic(selectedPicID:number) {
     }); 
   } catch (e) {
   }
+}
+
+export async function addTotalLesson(id:number) {
+  try {
+    const querySnapshot = await getDoc(doc(db, "users", auth.currentUser!.uid));
+    if(querySnapshot.exists()){
+      await updateDoc(doc(db, "users", auth.currentUser!.uid),{
+        lessondone:arrayUnion(id),
+      }); 
+    }
+  } catch (e) {
+    console.log(e)
+  }
+}
+
+export async function getTotalLesson() {
+  try {
+    const querySnapshot = await getDoc(doc(db, "users", auth.currentUser!.uid));
+    if(querySnapshot.exists()){
+      const lessondone = querySnapshot.data().lessondone;
+      return {
+        lessondone:lessondone? lessondone : [],
+      }
+    }
+  } catch (e) {
+  }
+  return {
+    lessondone:[],
+  };
 }
