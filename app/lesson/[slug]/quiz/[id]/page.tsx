@@ -1,9 +1,14 @@
 "use client";
-import { increasequizasdas, removeLatestLesson, addTotalLesson } from "@/app/firebaseConfig";
+import {
+  increasequizasdas,
+  removeLatestLesson,
+  addTotalLesson,
+} from "@/app/firebaseConfig";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { quizez } from "./quizdata";
+import OutroQuiz from "../outroQuiz";
 
 export default function Quiz({ params }: { params: { id: string } }) {
   const [activeQuestion, setActiveQuestion] = useState(0);
@@ -17,24 +22,26 @@ export default function Quiz({ params }: { params: { id: string } }) {
     wrongAnswers: 0,
   });
   const pageId = parseInt(params.id);
-  const quiz = quizez.find((element => element.qid == pageId))!;
+  const quiz = quizez.find((element) => element.qid == pageId)!;
 
   const { questions } = quiz;
   const { question, answers, correctAnswer } = questions[activeQuestion];
   const router = useRouter();
-  const getCaculation = ()=>{
+  const getCaculation = () => {
     const correctAnswers = result.correctAnswers;
     console.log({
-      score:correctAnswers * 50,
-      winres:correctAnswers*50 >= 150 ? "win":'lose',
-      coins:correctAnswers *5,
-      quizdone:"yes",
-    })
-    increasequizasdas(result.correctAnswers).then(()=>removeLatestLesson()).then(()=>addTotalLesson(pageId)).then(()=>{
-      router.push('/lesson');
-    })
-    
-  }
+      score: correctAnswers * 50,
+      winres: correctAnswers * 50 >= 150 ? "win" : "lose",
+      coins: correctAnswers * 5,
+      quizdone: "yes",
+    });
+    increasequizasdas(result.correctAnswers)
+      .then(() => removeLatestLesson())
+      .then(() => addTotalLesson(pageId))
+      .then(() => {
+        router.push("/lesson");
+      });
+  };
   //   Select and check answer
   const onAnswerSelected = (answer: any, idx: any) => {
     setChecked(true);
@@ -139,7 +146,11 @@ export default function Quiz({ params }: { params: { id: string } }) {
                   </span>{" "}
                   pertanyaan
                 </p>
-                <button onClick={getCaculation} className="font-semibold px-4 py-2 mt-4 bg-dark shadow shadow-dark rounded-md hover:bg-darker transition">
+                <OutroQuiz />
+                <button
+                  onClick={getCaculation}
+                  className="font-semibold px-4 py-2 mt-4 bg-dark shadow shadow-dark rounded-md hover:bg-darker transition"
+                >
                   {/* <Link href="/lesson">Selesai</Link> */}
                   <span>Selesai</span>
                 </button>

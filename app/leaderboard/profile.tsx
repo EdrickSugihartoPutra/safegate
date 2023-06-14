@@ -24,9 +24,7 @@ function item(data: any) {
                     alt={
                       storeProfileData.find((e) => e.id == user.pic)!.avatarName
                     }
-                    width={40}
-                    height={40}
-                    className="rounded-full w-20"
+                    className="rounded-full w-20 bg-primary"
                   />
                 </div>
                 <div className="flex justify-center w-1/3">

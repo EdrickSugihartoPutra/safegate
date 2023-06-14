@@ -1,9 +1,10 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { BsJournalBookmark, BsCoin } from "react-icons/bs";
 import { HiOutlineBadgeCheck } from "react-icons/hi";
 import { getTotalLesson, getUserInfo } from "../firebaseConfig";
 import { storeProfileData } from "./ProfileStoreJson";
+import { FaUserSecret } from "react-icons/fa";
+import { BsCoin } from "react-icons/bs";
 
 export default function ProfileCard() {
   const [userName, setuserName] = useState({
@@ -22,6 +23,14 @@ export default function ProfileCard() {
   return (
     <section className="relative mt-4" id="profileCard">
       <div className="container">
+        <div className="flex self-start text-light px-4 py-2 font-bold w-fit items-center justify-center bg-dark rounded-full my-4">
+          <div className="p-2 rounded-full bg-leaf">
+            <FaUserSecret size={20} className="text-dark" />
+          </div>
+          <h2 className="text-light font-semibold text-md ml-2">
+            Profil Agent
+          </h2>
+        </div>
         <div className="flex flex-wrap justify-evenly gap-4 bg-primary py-6 sm:p-4 rounded-lg shadow-lg shadow-dark sm:flex-nowrap">
           {/* Left Profile */}
           <div className="bg-white-500 flex items-center w-full justify-center my-2">

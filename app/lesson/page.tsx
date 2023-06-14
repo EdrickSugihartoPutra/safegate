@@ -3,6 +3,7 @@ import { lessonsIdx } from "./lessonsData";
 import Image from "next/image";
 import Link from "next/link";
 import { BsJournalBookmark } from "react-icons/bs";
+import IntroLesson from "./introLesson";
 
 export default function Lesson() {
   return (
@@ -17,6 +18,7 @@ export default function Lesson() {
         </div>
         {/* </div> */}
       </div>
+      <IntroLesson />
       {lessonsIdx.map((subject, idx) => (
         <div
           key={idx}

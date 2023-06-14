@@ -31,7 +31,7 @@ export default function ContinueCard() {
           <div className="relative container">
             <div className="flex items-center my-4">
               <div className="flex items-center bg-dark  rounded-full py-2 px-4">
-                <div className="p-2 rounded-full bg-leaf">
+                <div className="p-2 rounded-full bg-gold">
                   <BsJournalBookmark size={20} className="text-dark" />
                 </div>
                 <h2 className="text-light font-semibold text-md ml-2">

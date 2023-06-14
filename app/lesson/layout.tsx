@@ -11,7 +11,7 @@ export default function LessonLayout({
   return (
     <>
       <Navbar />
-      <div className="container flex flex-col w-full mt-24 mb-10 px-0 min-h-screen">
+      <div className="container flex flex-col w-full mt-24 mb-10 sm:px-0 min-h-screen">
         {children}
       </div>
       <Footer />
