@@ -85,7 +85,7 @@ export default function Quiz({ params }: { params: { id: string } }) {
     <>
       <div className="container flex flex-col w-full md:w-1/2 bg-dark text-light justify-center items-center py-8 rounded-lg">
         <h1 className="text-light font-semibold text-3xl">Test Quiz</h1>
-        <h2 className="text-gold font-semibold text-xl">Spoofing</h2>
+        <h2 className="text-gold font-semibold text-xl"></h2>
         <div className="container flex items-center justify-center my-4">
           <h2 className="text-lg font-semibold">
             Question: {activeQuestion + 1}
